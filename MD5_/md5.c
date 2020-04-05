@@ -35,6 +35,35 @@ void print_32_bits(int b)
     putchar('\n');
 }
 
+void print_hex(unsigned char b[], int bufferLength)
+{
+    for(int i=0;i<bufferLength;i++) {
+        printf("%02X ", b[i]);
+    }
+
+    putchar('\n');
+}
+
+void print_int_array_hex(unsigned int b[], int bufferLength)
+{
+    for(int i=0;i<bufferLength;i++) {
+        printf("0x%02x\t", b[i]);
+    }
+
+    putchar('\n');
+}
+
+int shifts[64] = {
+    7, 12, 17, 22,  7, 12, 17, 22,  
+    7, 12, 17, 22,  7, 12, 17, 22,
+    5,  9, 14, 20,  5,  9, 14, 20,  
+    5,  9, 14, 20,  5,  9, 14, 20,
+    4, 11, 16, 23,  4, 11, 16, 23,  
+    4, 11, 16, 23,  4, 11, 16, 23,
+    6, 10, 15, 21,  6, 10, 15, 21,  
+    6, 10, 15, 21,  6, 10, 15, 21
+};
+
 int main(){
 
 }
