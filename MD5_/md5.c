@@ -90,7 +90,28 @@ void generate_k()
         K[i] = (unsigned int)(fabs(sin(i + 1)) * (1L << 32));
     }
 }
+
+// defining some auxiliary functions
+int f(int x, int y, int z)
+{
+    return (x & y) | ((~x) & z);
+}
+
+int g(int x, int y, int z)
+{
+    return (x & z) | (y & ~(z));
+}
+
+int h(int x, int y, int z)
+{
+    return x ^ y ^ z;
+}
+
+int f_i(int x, int y, int z)
+{
+    return y ^ (x | ~(z));
+}
 int main(){
-    
+
 }
 
