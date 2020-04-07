@@ -111,7 +111,23 @@ int f_i(int x, int y, int z)
 {
     return y ^ (x | ~(z));
 }
+
+// Rotating to the Left
+unsigned int rotate_left(unsigned int temp, int times)
+{
+    return (temp << times) | (temp >> (32 - times));
+}
+
 int main(){
 
+    unsigned char message[64];
+
+    // Message prompting to input a string to Hash
+    printf("enter a string to hash \n");
+      // Input the String
+    scanf("%s", message);
+    unsigned long bitlength = strlen((char*)message) * sizeof((char*)message);
+
+  //  printf("Message(%lu) = %s\n", strlen((char*)message), message);
 }
 
