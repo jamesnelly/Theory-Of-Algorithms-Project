@@ -129,5 +129,22 @@ int main(){
     unsigned long bitlength = strlen((char*)message) * sizeof((char*)message);
 
   //  printf("Message(%lu) = %s\n", strlen((char*)message), message);
+
+   // adding 1 bit of padding
+   message[strlen((char*)message)] = 0x80; 
+   // appending bit length at the end
+    memcpy(message + 56, &bitlength, 8);    
+    //print_hex(message, 64);
+
+    generate_k();
+     // break chunk into sixteen 32-bit words M[j], 0 ≤ j ≤ 15
+    unsigned int chunks[16];
+    memcpy(chunks, &message, 64);
+
+    int A = a;
+    int B = b;
+    int C = c;
+    int D = d;
+
 }
 
