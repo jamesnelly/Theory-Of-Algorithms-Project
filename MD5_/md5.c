@@ -146,5 +146,33 @@ int main(){
     int C = c;
     int D = d;
 
+    int prev_round = 0;
+
+    for (int i=0; i<64; i++) {
+        int k = i;
+        int function_result = 0;
+        int s = shifts[i];
+        int round = (i >> 4) + 1;
+
+        if (round != prev_round) {
+            prev_round = round;
+            //print_header("New round applying new filters");
+        }
+
+        if (round == 1)
+            function_result = f(B, C, D);
+        else if (round == 2) {
+            // mod 16
+            k = (i * 5 + 1) & 0x0F;
+            function_result = g(B, C, D);
+        } else if (round == 3) {
+            // mod 16
+            k = (i * 3 + 5) & 0x0F; 
+            function_result = h(B, C, D);
+        } else if (round == 4) {
+            // mod 16
+            k = (i * 7) & 0x0F;
+            function_result = f_i(B, C, D);
+        }
 }
 
