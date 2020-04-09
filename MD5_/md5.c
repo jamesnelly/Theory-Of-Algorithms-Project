@@ -174,5 +174,27 @@ int main(){
             k = (i * 7) & 0x0F;
             function_result = f_i(B, C, D);
         }
+        // rotating left 
+        int temp = B + rotate_left((A + function_result + chunks[k] + K[i]), s);
+        A = D;
+        D = C;
+        C = B;
+        B = temp;
+
+        int debug[4] = {A, B, C, D};
+
+       // printf("\tA=%02X B=%02X C=%02X D=%02X\n", debug[(i + 1) & 3], debug[(i + 2) & 3], debug[(i + 3) & 3], debug[i & 3]);
+    }
+
+    int md[4] = {A + a, B + b, C + c, D + d};
+
+    unsigned char md5[16];
+    //memcpy(md5, md, 16);
+
+    print_header("MD5 Hash");
+    print_hex(md5, 16);
+
+    system("pause");
+    return 0;
 }
 
