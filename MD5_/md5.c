@@ -118,14 +118,23 @@ unsigned int rotate_left(unsigned int temp, int times)
     return (temp << times) | (temp >> (32 - times));
 }
 
-int main(){
+int main(int argc, char *argv[]){
+
+    printf("Enter One of the following command line arguments \n\n");
+    printf("Enter --help to get some information about the program\n");
+    printf("Enter --test to carry out some test on some strings \n");
+    printf("Enter --input to input some string yourself\n");
 
     unsigned char message[64];
 
+    
+
+
     // Message prompting to input a string to Hash
-    printf("enter a string to hash \n");
+    //printf("enter a string to hash \n");
       // Input the String
-    scanf("%s", message);
+    //scanf("%s", message);
+
     unsigned long bitlength = strlen((char*)message) * sizeof((char*)message);
 
   //  printf("Message(%lu) = %s\n", strlen((char*)message), message);
@@ -191,8 +200,8 @@ int main(){
     unsigned char md5[16];
     //memcpy(md5, md, 16);
 
-    print_header("MD5 Hash");
-    print_hex(md5, 16);
+    //print_header("MD5 Hash");
+    //print_hex(md5, 16);
 
     system("pause");
     return 0;
