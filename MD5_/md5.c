@@ -118,16 +118,30 @@ unsigned int rotate_left(unsigned int temp, int times)
     return (temp << times) | (temp >> (32 - times));
 }
 
-int main(int argc, char *argv[]){
+int main(int argc, char* argv[]){
 
-    printf("Enter One of the following command line arguments \n\n");
-    printf("Enter --help to get some information about the program\n");
-    printf("Enter --test to carry out some test on some strings \n");
-    printf("Enter --input to input some string yourself\n");
+    
+    int i ;
+
+    if( argc == 2){
+         printf("The arguments are --help :\n");
+         for(i = 1; i < argc; i++){
+             printf("%s\t", argv[i]);
+             if(strcmp(argv[i],"--help") == 0)
+             {   printf("\n ================================================================================================");
+                 printf("\n =     This is the MD5 Algorithim i have designed for the assignment                            =");
+                 printf("\n =     I have setup the Algorthim in a way in which you can input the string you would like     =");
+                 printf("\n =     The Algorithm will then HASH the input and output the Hashed version                     =");
+                printf("\n =================================================================================================");
+             }else{
+                 printf("no command exists");
+             }
+         }
+    }
+   
 
     unsigned char message[64];
 
-    
 
 
     // Message prompting to input a string to Hash
@@ -202,8 +216,7 @@ int main(int argc, char *argv[]){
 
     //print_header("MD5 Hash");
     //print_hex(md5, 16);
-
-    system("pause");
+    //system("pause");
     return 0;
 }
 
