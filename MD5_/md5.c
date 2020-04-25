@@ -120,11 +120,10 @@ unsigned int rotate_left(unsigned int temp, int times)
 
 int main(int argc, char* argv[]){
 
-    
     int i ;
 
     if( argc == 2){
-         printf("The arguments are --help :\n");
+         printf("The arguments are --help --test --input :\n");
          for(i = 1; i < argc; i++){
              printf("%s\t", argv[i]);
              if(strcmp(argv[i],"--help") == 0)
@@ -133,11 +132,15 @@ int main(int argc, char* argv[]){
                  printf("\n =     I have setup the Algorthim in a way in which you can input the string you would like     =");
                  printf("\n =     The Algorithm will then HASH the input and output the Hashed version                     =");
                 printf("\n =================================================================================================");
-             }else{
-                 printf("no command exists");
-             }
-         }
-    }
+                }else if (strcmp(argv[i], "--test") == 0){
+                    printf("\ntesting stuff here !!!");
+                }else if (strcmp(argv[i], "--input") == 0){
+                    printf("\nInput your own text");
+                }else{
+                    printf("no command exists");
+                }
+            }
+        }
    
 
     unsigned char message[64];
