@@ -118,6 +118,78 @@ unsigned int rotate_left(unsigned int temp, int times)
     return (temp << times) | (temp >> (32 - times));
 }
 
+static void test(){
+    size_t i = 0;
+   unsigned char message [5] [10] = {
+       "hello",
+       "james",
+       "ireland",
+       "corona",
+       "galway"
+       };
+
+    for (i = 0; i < sizeof(message) / sizeof(message[0]); i++){
+        printf("\nstring =  %s    ", message + i);
+
+        unsigned long bitlength = strlen((char*)message[i]) * sizeof((char*)message[i]);
+        message[i][strlen((char*)message)] = 0x80; 
+        memcpy(message + 56, &bitlength, 8);    
+        generate_k();
+        unsigned int chunks[16];
+        memcpy(chunks, &message, 64);
+        int A = a;
+        int B = b;
+        int C = c;
+        int D = d;
+        int prev_round = 0;
+
+            for (int i=0; i<64; i++) {
+        int k = i;
+        int function_result = 0;
+        int s = shifts[i];
+        int round = (i >> 4) + 1;
+
+        if (round != prev_round) {
+            prev_round = round;
+        }
+
+        if (round == 1)
+            function_result = f(B, C, D);
+        else if (round == 2) {
+            // mod 16
+            k = (i * 5 + 1) & 0x0F;
+            function_result = g(B, C, D);
+        } else if (round == 3) {
+            // mod 16
+            k = (i * 3 + 5) & 0x0F; 
+            function_result = h(B, C, D);
+        } else if (round == 4) {
+            // mod 16
+            k = (i * 7) & 0x0F;
+            function_result = f_i(B, C, D);
+        }
+        // rotating left 
+        int temp = B + rotate_left((A + function_result + chunks[k] + K[i]), s);
+        A = D;
+        D = C;
+        C = B;
+        B = temp;
+
+        int debug[4] = {A, B, C, D};
+    }
+     int md[4] = {A + a, B + b, C + c, D + d};
+
+    unsigned char md5[16];
+    memcpy(md5, md, 16);
+
+   // print_header("MD5 Hash");
+    print_hex(md5, 16);
+
+   }
+
+
+}
+
 int main(int argc, char* argv[]){
 
     int i ;
@@ -133,7 +205,7 @@ int main(int argc, char* argv[]){
                  printf("\n =     The Algorithm will then HASH the input and output the Hashed version                     =");
                 printf("\n =================================================================================================");
                 }else if (strcmp(argv[i], "--test") == 0){
-                    printf("\ntesting stuff here !!!");
+                        test();
                 }else if (strcmp(argv[i], "--input") == 0){
                     printf("\nInput your own text");
                 }else{
@@ -143,9 +215,7 @@ int main(int argc, char* argv[]){
         }
    
 
-    unsigned char message[64];
-
-
+    unsigned char message[64] = "Hello World";
 
     // Message prompting to input a string to Hash
     //printf("enter a string to hash \n");
