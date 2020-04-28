@@ -65,6 +65,11 @@ This command when entered will output some useful information about the program 
 
 ## Test
 
+**To execute the tests its very simple and straight forward once you have compiled the program, you have to input --test in the command line, this argruments then calls the test method in the Main Method. for the test to work correctly I had to make an unsigned array of strings, which them loops over the size of the arrays and implements the hashing of each string and then outputs the MD5 hash value under the string in the output**
+
+
+![GitHub Logo](/images/img5.png)
+<br />
 
 
 ## Algorithm 
