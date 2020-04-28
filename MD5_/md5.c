@@ -118,7 +118,7 @@ unsigned int rotate_left(unsigned int temp, int times)
     return (temp << times) | (temp >> (32 - times));
 }
 
-// void methods
+// static void method for --test commnand line argument
 static void test(){
     size_t i = 0;
    unsigned char message [5] [12] = {
@@ -190,10 +190,11 @@ static void test(){
 
     print_header("MD5 Hash");
     print_hex(md5, 16);
-     printf("\n=============================================================");
+    printf("\n=============================================================");
    }
 }
 
+// static void method for --input commnand line argument
 static void input()
 {
     // variable for the string to be assigned too
@@ -278,10 +279,13 @@ int main(int argc, char* argv[]){
              printf("%s\t", argv[i]);
              if(strcmp(argv[i],"--help") == 0)
              {   printf("\n ================================================================================================");
-                 printf("\n =     This is the MD5 Algorithim i have designed for the assignment                            =");
-                 printf("\n =     I have setup the Algorthim in a way in which you can input the string you would like     =");
-                 printf("\n =     The Algorithm will then HASH the input and output the Hashed version                     =");
-                printf("\n =================================================================================================");
+                 printf("\n =         This is the MD5 Algorithim i have designed for the assignment                        =");
+                 printf("\n =         I have setup the Program in a way in which you can input different                   =");
+                 printf("\n =         Command arguments on the command like for example                                    =\n");
+                 printf("\n =         --test This will test 5 strings in the program that are defined                      =");
+                 printf("\n =         --input This wiil give you the option to enter astring of your choice to hash        =\n");
+                 printf("\n =        The Algorithm will then HASH the input and output the Hashed version                  =");
+                 printf("\n ================================================================================================");
                 }else if (strcmp(argv[i], "--test") == 0){
                         test();
                 }else if (strcmp(argv[i], "--input") == 0){
@@ -290,8 +294,6 @@ int main(int argc, char* argv[]){
                     printf("no command exists");
                 }
             }
-            
         } 
         return 0;
 }
-
