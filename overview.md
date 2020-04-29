@@ -37,8 +37,6 @@ where i will brifely explain the project and summarise  it.**
 - Step 5: There is a list of input arguments you can choose from
 
 <br />
-<br />
-
 
 1. **The first argument is --help** 
 This command when entered will output some useful information about the program and will give you insructions on the other arguments you can use.
@@ -71,9 +69,76 @@ This command when entered will output some useful information about the program 
 ![GitHub Logo](/images/img5.png)
 <br />
 
+<br />
 
 ## Algorithm 
 
+**The way in which this algorithim is implemented i tried to make it work as similar to the Original RFC implementation as I could.
+There a number of steps to follow to implement the M5 algorithim**
+
+### 1. Append Padding Bits
+
+**To Implement this for step for the algorithim. I start a the appending of the bits after the message variable has been assigned a string when then get the length of the string and then its padded. The message is padded as so that its length in bits is congruent to 448, modulo 512. The message is extended so that it is just 64 bits and very close to being a multiple of 512 bits long.**
+
+<br />
+
+### 2. Append Length
+
+**The next step of appending the length is done straight after step 1**
+
+<br />
+
+### 3. Initialize MD Buffer
+
+#### I first initialized my state variables
+
+**int a = 0x67452301;**
+<br />
+**int b = 0xefcdab89;**
+<br />
+**int c = 0x98badcfe;**
+<br />
+**int d = 0x10325476;**
+<br />
+
+**I then Initialize hash value for this chunk**
+<br />
+ **int A = a;**
+ <br />
+ **int B = b;**
+ <br />
+ **int C = c;**
+ <br />
+ **int D = d;**
+  <br />
+   <br />
+   
+### 4. Process Message in 16-Word Blocks
+
+ **The next part I defined earlier in the code is the auxilary functions that each take as input
+   three 32-bit words and produce as output one 32-bit word. They apply the logical operators and, or, not and xor to the input bits.**
+      <br />
+      <br />
+     **F(X,Y,Z) = XY v not(X) Z**
+     <br />
+   **G(X,Y,Z) = XZ v Y not(Z)**
+       <br />
+   **H(X,Y,Z) = X xor Y xor Z**
+       <br />
+   **f_i(X,Y,Z) = Y xor (X v not(Z))**
+       <br />
+       
+       
+ ### The Table
+
+**MD5 further uses a table K that has 64 elements. Element number i is indicated as Ki. The table is computed beforehand to speed up the computations. The elements are computed using the mathematical sin function. All These steps have led to final step whic is the output**
+  <br />
+
+### 5. Output
+  
+  ![GitHub Logo](/images/img8.png)
+  
+  **After all rounds have been performed, the buffers A, B, C and D contain the MD5 digest, I have placed the output from the varibles in a varible called (function_result) this in turn being done by the rotation of left.**
 
 
 
