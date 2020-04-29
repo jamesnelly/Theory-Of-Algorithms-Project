@@ -121,12 +121,12 @@ unsigned int rotate_left(unsigned int temp, int times)
 // static void method for --test commnand line argument
 static void test(){
     size_t i = 0;
-   unsigned char message [5] [12] = {
-       "hello",
-       "james",
-       "ireland",
-       "corona",
-       "galway"
+   unsigned char message [5] [11] = {
+       "",
+       "a",
+       "abc",
+       "algorithim",
+       "123456789"
        };
 
     for (i = 0; i < sizeof(message) / sizeof(message[0]); i++){
@@ -283,7 +283,7 @@ int main(int argc, char* argv[]){
                  printf("\n =         I have setup the Program in a way in which you can input different                   =");
                  printf("\n =         Command arguments on the command like for example                                    =\n");
                  printf("\n =         --test This will test 5 strings in the program that are defined                      =");
-                 printf("\n =         --input This wiil give you the option to enter astring of your choice to hash        =\n");
+                 printf("\n =         --input This wiil give you the option to enter astring of your choice to hash       \n");
                  printf("\n =        The Algorithm will then HASH the input and output the Hashed version                  =");
                  printf("\n ================================================================================================");
                 }else if (strcmp(argv[i], "--test") == 0){
