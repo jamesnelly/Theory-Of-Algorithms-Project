@@ -66,7 +66,18 @@ This command when entered will output some useful information about the program 
 
 
 ![GitHub Logo](/images/img5.png)
+
 <br />
+
+ - **[Test For md5](https://www.md5hashgenerator.com/)**.
+ 
+ **I tested several strings through this hash generator to see if my message digest's were indeed providing the correct hash.**
+ **Unfortumatly the hashes I got as a result from my strings im my program do not seem to match the hash generator tester.**
+ **For this to happen I have made some eroor in my code along the way.**
+ **On the other hand it does give a result of a message digest but not the correct one.**
+
+
+
 
 <br />
 
