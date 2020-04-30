@@ -5,7 +5,6 @@
 
 
 
-
 ## Introduction
 
 **This is my introduction to the project. The assignment we were given to do was to write a program in C programming language that will
@@ -141,9 +140,55 @@ There a number of steps to follow to implement the M5 algorithim**
   **After all rounds have been performed, the buffers A, B, C and D contain the MD5 digest, I have placed the output from the varibles in a varible called (function_result) this in turn being done by the rotation of left.**
 
 
-
+  <br />
 
 ## Complexity 
+
+**At the initial state of the program is accepting the command prompt arguments. The program has three outcomes when it comes to accepting the command prompt arguments.**
+ 
+**Two of these arguments runs the hash algorithm and test its working the remaining the remmaining argument check if the arguement passed is indeed a valid argument. If not the program will tell it does not exist**
+ 
+**The program has the capacity to read in the users string/text to be hashed using this algorithm but has i have also incorporated tests into the program**
+ 
+**I have deatiled how to compile and run the program with the command line arguments in the Run section of the overview**
+  
+ #### Explaining the code 
+ 
+**First i defined void method called print_hex which will print hash value of the result after evreything has been hashed. This method will not bee called until the very end of the hashing is completed it will the output the result of the string that have been passed throught it.**
+
+**I defined the the shift amount, The shift amounts in each round have been approximately optimized, to yield a faster and avalanche effect. Each round has a repeating sequence of 4 shift amounts,  they will execute over a 16-word block. The shift amounts are passed throught the rounds. They follow like this.**
+ <br />
+ - 7, 12, 17 and 22 for the round 1
+ - 5, 9, 14 and 20 for the round 2
+ - 4, 11, 16 and 23 for the round 3
+ - 6, 10, 15 and 21 for the round 4
+ 
+ **To compute and generate K I used the mathematical fuction sin, This will genartae the table K which will have 64 elements. The table is computed beforhand to speed up the computations. i is assigned to K.**
+ 
+ 
+ **The auxiliry functions which there are 4 of. They will each take an input of 3 ,32 bit words and produce an output of one 32 bit word. The result from the auxilary fuctions are passed to the rounds.**
+ 
+ **The contents of the four buffers (A, B, C and D) are now mixed with the words of the input, using the four auxiliary functions (f, g, h and f_i). There are four rounds, each involves 16 basic operations. After this is complete the leftrotate function shifts its bits to the left**
+ 
+ **After all rounds have been completetd the Buffers A B C D contain the MD5 digest of the orgianl output. the digest is then printed out by the print_hex fuction that was mentioned at the start.**
+ 
+ **The main method is the very last method in the program, The main element that is being executed in the main method is eveyting to do with the command line arguments.
+ 
+ **There is a if statement to deal with the differnt command line options that can be entered.**
+ 
+ **When the argument is equal to --help information about the program is printed out in the command line.**
+ 
+ **When the argument is equal to --test 5 different Strings are being tested, they are being assigned in the test fuction and being stored as an unsigned string array of 5 strings in size with max length of 11 characters.**
+ 
+ **The last input in the command line is the --input where the user can input any string they would like to hash**
+ 
+ 
+
+ 
+     
+
+
+
 
 
 
