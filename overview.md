@@ -182,16 +182,41 @@ There a number of steps to follow to implement the M5 algorithim**
  
  **The last input in the command line is the --input where the user can input any string they would like to hash**
  
- 
 
- 
-     
-
-
-
-
-
-
-
+  <br />
+   <br />
 
 ## References 
+
+ 
+- **[RFC for MD5](https://www.ietf.org/rfc/rfc1321.txt)**.
+
+**The first was link was very useful I was constatly on this page refering back to the steps and to the code that was given on the page To try and undersatnd this algorithim.**
+
+- **[MD5 cryptographic hash function](https://www.iusmentis.com/technology/hashfunctions/md5/)**.
+ 
+ **This second link I referend back to a lot as it explains how the md5 works its a short explanintion but it brifely explains some of the parts needed for the md5 algorithim**
+ 
+ - **[Rosetta Code MD5](https://rosettacode.org/wiki/MD5)**.
+ 
+ **The Rosetta code website for the md5 for me was valuable as there was many implmentation's of the Md5 algorithims in many different forms of programnming languages. I refered to this a bit when i was implemnting the code as to see it done in other languages I had used before I could then implement it into in code after doing some research on c itself**
+ 
+ 
+ - **[MD5 Wikipedia](https://en.wikipedia.org/wiki/MD5)**.
+ 
+ **This was useful when I was reading up about the MD5 algoritim and also has some nice Pseudocode on the MD5 aswell**
+ 
+ 
+  - **[Documenation For C](https://www.programiz.com/c-programming)**.
+  
+  **This link came in very handy as i was not that knowledgeable of c syntax the documentation helped me with this as anything i was unsure of how to implement i would look it up in the docs**
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
